@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahzaib AI Agent — Personal Autonomous Intelligence Workstation</title>
+  <meta name="description" content="Shahzaib AI Agent is an autonomous, tool-empowered personal AI workstation created exclusively for SHAHZAIB ARSHAD KHAGGA with goal planning, real tools, and safety checkpoints.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Ambient High-Tech Cyber Background -->
+  <div class="cyber-background"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Master Application Container -->
+  <div class="app-container" id="app">
+    
+    <!-- =====================================================================
+         SIDEBAR NAVIGATION
+    ===================================================================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-avatar">⚡</div>
+        <div class="brand-info">
+          <h1 class="brand-title">Shahzaib AI Agent</h1>
+          <div class="brand-creator">SHAHZAIB ARSHAD KHAGGA</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-menu" id="navMenu">
+        <button class="nav-item active" data-tab="chat" id="tabNavChat">
+          <span class="nav-icon">💬</span>
+          <span>Workspace</span>
+        </button>
+        <button class="nav-item" data-tab="tasks" id="tabNavTasks">
+          <span class="nav-icon">📋</span>
+          <span>Tasks & Plan</span>
+        </button>
+        <button class="nav-item" data-tab="memory" id="tabNavMemory">
+          <span class="nav-icon">🧠</span>
+          <span>Memory Store</span>
+        </button>
+        <button class="nav-item" data-tab="tools" id="tabNavTools">
+          <span class="nav-icon">🛠️</span>
+          <span>Tools Hub</span>
+        </button>
+        <button class="nav-item" data-tab="activity" id="tabNavActivity">
+          <span class="nav-icon">📜</span>
+          <span>Activity Stream</span>
+        </button>
+        <button class="nav-item" data-tab="settings" id="tabNavSettings">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <!-- Sessions History -->
+      <div class="sessions-section">
+        <div class="sessions-header">
+          <span class="sessions-title">Conversations</span>
+          <button class="btn-new-chat" id="btnNewChat">
+            <span>+</span>
+            <span>New Chat</span>
+          </button>
+        </div>
+        <div class="sessions-list" id="sessionsList">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Sidebar Status Footer -->
+      <div class="sidebar-footer">
+        <div class="agent-live-status">
+          <span class="status-dot" id="agentStatusDot"></span>
+          <span class="status-text" id="agentStatusText">Online • Idle</span>
+        </div>
+        <span style="font-size: 0.72rem; color: var(--text-dim); font-family: var(--font-code);">v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- =====================================================================
+         MAIN AGENT STAGE
+    ===================================================================== -->
+    <main class="main-stage">
+      <!-- Top Navigation & Controls Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button class="btn-mobile-menu" id="btnMobileMenu" aria-label="Toggle Navigation">☰</button>
+          <div class="view-indicator">
+            <h2 class="view-title" id="currentViewTitle">Workspace Chat</h2>
+          </div>
+        </div>
+
+        <div class="top-bar-right">
+          <div class="provider-badge" id="headerProviderBadge">
+            <span>⚡</span>
+            <span id="headerProviderName">Autonomous Engine</span>
+          </div>
+          <button class="btn-toggle-inspector" id="btnToggleInspector">
+            <span>Inspector</span>
+            <span id="inspectorIndicator">▶</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="views-container">
+        
+        <!-- 1. CHAT WORKSPACE VIEW -->
+        <section class="view-panel active" id="viewChat">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+              <!-- Chat bubbles rendered here -->
+            </div>
+
+            <!-- Bottom Floating Prompt Dock -->
+            <div class="prompt-dock-container">
+              <!-- Fast Capability Trigger Chips -->
+              <div class="capability-chips">
+                <button class="chip-btn" data-prompt="Search the web for the latest advancements in AI agents in 2026">
+                  <span>🌐</span> Web Research
+                </button>
+                <button class="chip-btn" data-prompt="Run code: const nums = [12, 45, 78, 23, 99]; console.log('Max:', Math.max(...nums)); console.log('Sum:', nums.reduce((a, b) => a + b, 0));">
+                  <span>💻</span> Code Sandbox
+                </button>
+                <button class="chip-btn" data-prompt="Create file project_brief.md content: # Project Brief for SHAHZAIB ARSHAD KHAGGA\n\nShahzaib AI Agent architecture initialized.">
+                  <span>📁</span> Write File
+                </button>
+                <button class="chip-btn" data-prompt="Generate report on Next-Gen Autonomous AI Agent Architectures">
+                  <span>📝</span> Generate Document
+                </button>
+                <button class="chip-btn" data-prompt="Audit workspace">
+                  <span>⚡</span> Audit Workspace
+                </button>
+              </div>
+
+              <!-- Main Input Capsule -->
+              <div class="prompt-capsule">
+                <textarea 
+                  class="prompt-textarea" 
+                  id="promptInput" 
+                  placeholder="Direct Shahzaib AI Agent... (Press Enter to execute, Shift+Enter for new line)"
+                  rows="1"
+                ></textarea>
+                <div class="prompt-actions">
+                  <button class="btn-send" id="btnSendPrompt" title="Execute Strategy">
+                    <span>➤</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. FULL TASKS & PLAN VIEW -->
+        <section class="view-panel" id="viewTasks">
+          <div class="screen-scroll-container">
+            <div class="screen-header-card">
+              <div class="screen-header-info">
+                <h2>Tasks & Agent Planning</h2>
+                <p>Real-time decomposition, dependencies, and execution progress for the current goal.</p>
+              </div>
+            </div>
+            <div id="fullTasksContainer">
+              <!-- Rendered by tasks.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. MEMORY STORE VIEW -->
+        <section class="view-panel" id="viewMemory">
+          <div class="screen-scroll-container">
+            <div class="screen-header-card">
+              <div class="screen-header-info">
+                <h2>Persistent Memory Store</h2>
+                <p>Long-term knowledge base: user preferences, active project briefs, and permanent system directives.</p>
+              </div>
+              <button class="btn-primary" id="btnOpenAddMemory">
+                <span>+</span> Add Memory Note
+              </button>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <input type="text" class="form-input" id="memorySearchInput" placeholder="Search memory store by keyword or tag..." style="flex: 1; min-width: 250px;">
+              <div style="display: flex; gap: 6px;">
+                <button class="chip-btn active" data-memory-cat="all">All</button>
+                <button class="chip-btn" data-memory-cat="preferences">Preferences</button>
+                <button class="chip-btn" data-memory-cat="projects">Projects</button>
+                <button class="chip-btn" data-memory-cat="instructions">Instructions</button>
+                <button class="chip-btn" data-memory-cat="facts">Facts</button>
+              </div>
+            </div>
+
+            <!-- Memories Grid -->
+            <div class="cards-grid" id="memoryCardsGrid">
+              <!-- Rendered by memory.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. TOOLS HUB VIEW -->
+        <section class="view-panel" id="viewTools">
+          <div class="screen-scroll-container">
+            <div class="screen-header-card">
+              <div class="screen-header-info">
+                <h2>Tools & Capabilities Hub</h2>
+                <p>Genuine, connected tools available to Shahzaib AI Agent. Inspect parameters, toggle access, or run direct tests.</p>
+              </div>
+            </div>
+            <div class="cards-grid" id="toolsCardsGrid">
+              <!-- Rendered by tools.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. ACTIVITY STREAM VIEW -->
+        <section class="view-panel" id="viewActivity">
+          <div class="screen-scroll-container">
+            <div class="screen-header-card">
+              <div class="screen-header-info">
+                <h2>Real-Time Activity Stream</h2>
+                <p>Live execution trace, internal reasoning logs, tool call parameters, network latencies, and checkpoint events.</p>
+              </div>
+              <button class="chip-btn" id="btnClearActivityLogs">Clear Logs</button>
+            </div>
+            <div class="activity-stream" id="fullActivityStream">
+              <!-- Rendered by activity.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. SETTINGS VIEW -->
+        <section class="view-panel" id="viewSettings">
+          <div class="screen-scroll-container">
+            <div class="screen-header-card">
+              <div class="screen-header-info">
+                <h2>System & AI Provider Settings</h2>
+                <p>Configure model providers, API credentials, confirmation policies, and agent personality.</p>
+              </div>
+              <button class="btn-primary" id="btnSaveSettings">Save All Settings</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px;">
+              <!-- Provider Selection Card -->
+              <div class="standard-card">
+                <h3 style="font-family: var(--font-main); color: #fff;">Active AI Provider</h3>
+                <p style="font-size: 0.82rem; color: var(--text-dim);">Select the core intelligence engine that drives planning and reasoning.</p>
+                
+                <div class="form-group" style="margin-top: 10px;">
+                  <label class="form-label" for="settingProviderSelect">Provider</label>
+                  <select class="form-select" id="settingProviderSelect">
+                    <option value="deterministic">Autonomous Built-in Engine (Zero Setup / Offline Ready)</option>
+                    <option value="gemini">Google Gemini (Gemini 2.0 Flash / 1.5 Pro)</option>
+                    <option value="openai">OpenAI (GPT-4o / GPT-4o Mini / o3-mini)</option>
+                    <option value="anthropic">Anthropic Claude (Claude 3.5 Sonnet)</option>
+                    <option value="ollama">Local Ollama (Llama 3 / Mistral / DeepSeek)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingModelInput">Model Identifier</label>
+                  <input type="text" class="form-input" id="settingModelInput" placeholder="auto-select or specific model ID">
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 6px;">
+                  <button class="chip-btn" id="btnTestProviderConn">⚡ Test Provider Connection</button>
+                  <span id="providerTestResult" style="font-size: 0.78rem; font-family: var(--font-code); align-self: center;"></span>
+                </div>
+              </div>
+
+              <!-- Checkpoint & Safety Policy Card -->
+              <div class="standard-card">
+                <h3 style="font-family: var(--font-main); color: #fff;">Safety & Checkpoint Policy</h3>
+                <p style="font-size: 0.82rem; color: var(--text-dim);">Configure confirmation checkpoints before executing destructive operations.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+                  <label style="display: flex; align-items: center; gap: 10px; font-size: 0.88rem; cursor: pointer;">
+                    <input type="checkbox" id="settingRequireConfirmation" checked style="accent-color: var(--neon-cyan); width: 18px; height: 18px;">
+                    <div>
+                      <strong>Interactive Confirmation Checkpoints</strong>
+                      <div style="font-size: 0.76rem; color: var(--text-dim);">Pause before writing files, running sandbox code, or external POST requests.</div>
+                    </div>
+                  </label>
+
+                  <label style="display: flex; align-items: center; gap: 10px; font-size: 0.88rem; cursor: pointer;">
+                    <input type="checkbox" id="settingAutoApproveSafe" checked style="accent-color: var(--neon-cyan); width: 18px; height: 18px;">
+                    <div>
+                      <strong>Auto-Approve Safe Read Operations</strong>
+                      <div style="font-size: 0.76rem; color: var(--text-dim);">Automatically execute web searches, file reads, and workspace list tasks.</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- API Keys Card -->
+              <div class="standard-card" style="grid-column: 1 / -1;">
+                <h3 style="font-family: var(--font-main); color: #fff;">API Credentials & Endpoints</h3>
+                <p style="font-size: 0.82rem; color: var(--text-dim);">Keys are securely stored in local configuration files. You can leave empty to use the Built-in Engine.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+                  <div class="form-group">
+                    <label class="form-label" for="settingGeminiKey">Google Gemini API Key</label>
+                    <input type="password" class="form-input" id="settingGeminiKey" placeholder="AIzaSy...">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="settingOpenAIKey">OpenAI API Key</label>
+                    <input type="password" class="form-input" id="settingOpenAIKey" placeholder="sk-proj-...">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="settingAnthropicKey">Anthropic Claude API Key</label>
+                    <input type="password" class="form-input" id="settingAnthropicKey" placeholder="sk-ant-...">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="settingOllamaHost">Ollama Host Address</label>
+                    <input type="text" class="form-input" id="settingOllamaHost" placeholder="http://localhost:11434">
+                  </div>
+                </div>
+              </div>
+
+              <!-- System Prompt / Persona Card -->
+              <div class="standard-card" style="grid-column: 1 / -1;">
+                <h3 style="font-family: var(--font-main); color: #fff;">Agent Persona & System Directives</h3>
+                <div class="form-group" style="margin-top: 10px;">
+                  <textarea class="form-textarea" id="settingSystemPrompt" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- =====================================================================
+         RIGHT INSPECTOR PANEL (ACTIVE TASKS & LIVE TRACE)
+    ===================================================================== -->
+    <aside class="inspector-panel" id="inspectorPanel">
+      <div class="inspector-header">
+        <div class="inspector-tabs">
+          <button class="inspector-tab active" data-inspect="tasks" id="inspectTabTasks">Active Plan</button>
+          <button class="inspector-tab" data-inspect="activity" id="inspectTabActivity">Live Trace</button>
+        </div>
+      </div>
+      
+      <div class="inspector-content">
+        <!-- Tab 1: Active Plan -->
+        <div id="inspectorTasksView">
+          <!-- Populated by tasks.js -->
+        </div>
+
+        <!-- Tab 2: Live Activity Trace -->
+        <div id="inspectorActivityView" style="display: none;">
+          <div class="activity-stream" id="miniActivityStream">
+            <!-- Populated by activity.js -->
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- =====================================================================
+       CONFIRMATION CHECKPOINT MODAL (SAFETY CHECKPOINT)
+  ===================================================================== -->
+  <div class="checkpoint-overlay" id="checkpointOverlay">
+    <div class="checkpoint-card" id="checkpointCard">
+      <div class="checkpoint-header">
+        <div class="checkpoint-icon">🛡️</div>
+        <div class="checkpoint-title-area">
+          <div class="checkpoint-security-tag" id="checkpointDangerTag">CAUTION • CHECKPOINT LEVEL: MEDIUM</div>
+          <h3 class="checkpoint-title" id="checkpointTitle">Authorization Required</h3>
+        </div>
+      </div>
+
+      <div class="checkpoint-body" id="checkpointReason">
+        Shahzaib AI Agent is preparing to execute a potentially destructive or external action. Please review and authorize.
+      </div>
+
+      <div>
+        <span style="font-size: 0.74rem; font-family: var(--font-code); color: var(--text-dim); text-transform: uppercase;">Action Parameters Preview:</span>
+        <pre class="checkpoint-code-preview" id="checkpointArgsPreview"></pre>
+      </div>
+
+      <label class="checkpoint-options">
+        <input type="checkbox" id="chkAutoApproveSession">
+        <span>Always authorize this action type for the rest of this session</span>
+      </label>
+
+      <div class="checkpoint-actions">
+        <button class="btn-reject" id="btnRejectCheckpoint">Reject Step</button>
+        <button class="btn-approve" id="btnApproveCheckpoint">Approve & Execute</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       ADD MEMORY MODAL
+  ===================================================================== -->
+  <div class="standard-modal-overlay" id="addMemoryModalOverlay">
+    <div class="standard-modal">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-family: var(--font-main); color: #fff;">Add Persistent Memory Note</h3>
+        <button id="btnCloseMemoryModal" style="background: transparent; border: none; color: var(--text-dim); font-size: 1.2rem; cursor: pointer;">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="memInputCategory">Category</label>
+        <select class="form-select" id="memInputCategory">
+          <option value="preferences">Preferences (User habits, styles)</option>
+          <option value="projects">Projects (Active goals, repositories)</option>
+          <option value="instructions">Instructions (System rules, directives)</option>
+          <option value="facts">Facts (Specific knowledge, information)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="memInputKey">Key / Title</label>
+        <input type="text" class="form-input" id="memInputKey" placeholder="e.g. Principal Honorific">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="memInputValue">Memory Value / Directive</label>
+        <textarea class="form-textarea" id="memInputValue" rows="3" placeholder="Enter persistent memory information..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="memInputTags">Tags (comma-separated)</label>
+        <input type="text" class="form-input" id="memInputTags" placeholder="e.g. core, creator, identity">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+        <button class="chip-btn" id="btnCancelAddMemory">Cancel</button>
+        <button class="btn-primary" id="btnSubmitAddMemory">Save Note to Memory</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       TEST TOOL RUNNER MODAL
+  ===================================================================== -->
+  <div class="standard-modal-overlay" id="toolTestModalOverlay">
+    <div class="standard-modal">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-family: var(--font-main); color: #fff;">Direct Tool Test Console</h3>
+        <button id="btnCloseToolModal" style="background: transparent; border: none; color: var(--text-dim); font-size: 1.2rem; cursor: pointer;">✕</button>
+      </div>
+
+      <div id="toolTestInfo">
+        <!-- Rendered by tools.js -->
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="toolTestArgsInput">JSON Arguments Payload</label>
+        <textarea class="form-textarea" id="toolTestArgsInput" rows="4" style="font-family: var(--font-code); font-size: 0.82rem;"></textarea>
+      </div>
+
+      <button class="btn-primary" id="btnExecuteToolTest">Run Execution Test</button>
+
+      <div>
+        <span style="font-size: 0.74rem; font-family: var(--font-code); color: var(--text-dim); text-transform: uppercase;">Execution Output:</span>
+        <pre class="checkpoint-code-preview" id="toolTestOutputPreview" style="margin-top: 6px; max-height: 200px;">Awaiting test execution...</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main ES Module Bootstrap -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

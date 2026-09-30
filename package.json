@@ -1,0 +1,27 @@
+{
+  "name": "shahzaib-ai-agent",
+  "version": "1.0.0",
+  "description": "Shahzaib AI Agent - Personal Agentic AI Workspace for SHAHZAIB ARSHAD KHAGGA",
+  "type": "module",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node --watch backend/src/server.js",
+    "test:api": "node -e \"fetch('http://localhost:3000/api/health').then(r=>r.json()).then(console.log)\""
+  },
+  "keywords": [
+    "ai-agent",
+    "agentic-ai",
+    "shahzaib-ai-agent",
+    "task-planning",
+    "autonomous-agent",
+    "tool-use"
+  ],
+  "author": "SHAHZAIB ARSHAD KHAGGA",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

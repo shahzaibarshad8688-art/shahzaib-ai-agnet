@@ -1,0 +1,112 @@
+/* =====================================================================
+   SHAHZAIB AI AGENT — ANIMATIONS & MICRO-INTERACTIONS
+===================================================================== */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--neon-cyan-glow);
+    border-color: rgba(0, 240, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--neon-cyan-glow), 0 0 10px rgba(139, 92, 246, 0.4);
+    border-color: rgba(0, 240, 255, 0.8);
+  }
+}
+
+@keyframes cautionPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.6);
+    border-color: rgba(245, 158, 11, 0.95);
+  }
+}
+
+@keyframes beaconPing {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reusable animation utility classes */
+.anim-fade-in-up {
+  animation: fadeInUp var(--transition-smooth) forwards;
+}
+
+.anim-slide-in-right {
+  animation: slideInRight var(--transition-smooth) forwards;
+}
+
+.anim-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.anim-spin {
+  animation: spinSlow 1.5s linear infinite;
+}
+
+.anim-beacon {
+  animation: beaconPing 2s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+.shimmer-active {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

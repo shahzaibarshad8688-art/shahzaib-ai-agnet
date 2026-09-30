@@ -1,0 +1,80 @@
+/* =====================================================================
+   SHAHZAIB AI AGENT — DESIGN SYSTEM & TOKENS
+   Creator: SHAHZAIB ARSHAD KHAGGA
+   Theme: High-Tech Cyber-Dark Glassmorphic Workspace
+===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Surface & Background Palettes */
+  --bg-space: #060911;
+  --bg-deep: #0a0f1d;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(22, 34, 61, 0.85);
+  --bg-elevated: #111a2e;
+  --bg-overlay: rgba(6, 9, 17, 0.85);
+  --bg-input: rgba(10, 16, 31, 0.9);
+
+  /* Primary Neon & Brand Accents */
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.35);
+  --neon-cyan-soft: rgba(0, 240, 255, 0.12);
+  
+  --electric-violet: #8b5cf6;
+  --electric-violet-glow: rgba(139, 92, 246, 0.35);
+  --electric-violet-soft: rgba(139, 92, 246, 0.12);
+
+  --cyber-blue: #3b82f6;
+  --cyber-blue-soft: rgba(59, 130, 246, 0.15);
+
+  --accent-gradient: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ec4899 100%);
+  --accent-gradient-subtle: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  --card-gradient: linear-gradient(180deg, rgba(22, 34, 61, 0.6) 0%, rgba(14, 21, 38, 0.75) 100%);
+
+  /* Status Accents */
+  --status-emerald: #10b981;
+  --status-emerald-glow: rgba(16, 185, 129, 0.3);
+  --status-amber: #f59e0b;
+  --status-amber-glow: rgba(245, 158, 11, 0.35);
+  --status-rose: #f43f5e;
+  --status-rose-glow: rgba(244, 63, 94, 0.35);
+
+  /* Text & Content */
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-inverse: #060911;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-neon: rgba(0, 240, 255, 0.3);
+  --border-focus: #00f0ff;
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 35px rgba(0, 0, 0, 0.65);
+  --shadow-neon-cyan: 0 0 20px rgba(0, 240, 255, 0.25);
+  --shadow-neon-violet: 0 0 20px rgba(139, 92, 246, 0.25);
+
+  /* Typography */
+  --font-main: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-code: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Layout Measurements */
+  --sidebar-width: 280px;
+  --inspector-width: 380px;
+  --header-height: 64px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
